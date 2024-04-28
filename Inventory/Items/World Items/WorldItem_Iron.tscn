@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://hfxbcts1okh"]
+
+[ext_resource type="Script" path="res://Inventory/WorldItem.gd" id="1_a7oqv"]
+[ext_resource type="ArrayMesh" uid="uid://8evg4gju7nl8" path="res://Inventory/Items/Models/Iron.obj" id="2_r0jex"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0jilk"]
+albedo_color = Color(0.4, 0.4, 0.4, 1)
+roughness = 0.42
+rim_enabled = true
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_jvpvl"]
+points = PackedVector3Array(0.484386, -0.218579, 0.764747, 0.230055, 0.214859, 0.799986, 0.443325, -0.214908, 0.799986, 0.464851, -0.25, 0.764747, 0.484386, -0.218579, -0.764918, 0.267417, 0.218481, 0.764747, -0.23015, 0.214859, 0.799986, 0.216684, 0.25, 0.764747, -0.44342, -0.214908, 0.799986, -0.464946, -0.25, 0.764747, 0.464851, -0.25, -0.764918, 0.443325, -0.214908, -0.8, 0.230055, 0.214859, -0.8, 0.267417, 0.218481, -0.764918, -0.216874, 0.25, 0.764747, -0.267607, 0.218481, 0.764747, 0.216684, 0.25, -0.764918, -0.484386, -0.218579, 0.764747, -0.464946, -0.25, -0.764918, -0.44342, -0.214908, -0.8, -0.23015, 0.214859, -0.8, -0.216874, 0.25, -0.764918, -0.267607, 0.218481, -0.764918, -0.484386, -0.218579, -0.764918)
+
+[node name="WorldItem_Iron" type="RigidBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.14914, 1.28552, -3.65983)
+script = ExtResource("1_a7oqv")
+item_name = "Iron"
+interact_prompt = "Pickup Iron"
+
+[node name="Iron" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+mesh = ExtResource("2_r0jex")
+surface_material_override/0 = SubResource("StandardMaterial3D_0jilk")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.00467384, -2.38419e-07, 0.00255346)
+shape = SubResource("ConvexPolygonShape3D_jvpvl")

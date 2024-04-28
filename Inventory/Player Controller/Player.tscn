@@ -1,0 +1,137 @@
+[gd_scene load_steps=10 format=3 uid="uid://cf1pwgl0y0mi6"]
+
+[ext_resource type="Script" path="res://Inventory/Player Controller/PlayerController.gd" id="1_krxqb"]
+[ext_resource type="Script" path="res://Inventory/Player Controller/Interaction/InteractionController.gd" id="2_66uls"]
+[ext_resource type="Script" path="res://Inventory/Inventory.gd" id="3_r3826"]
+[ext_resource type="Resource" uid="uid://bt1ekeqoodtl3" path="res://Inventory/Items/Item Data/Goo.tres" id="4_56bjt"]
+[ext_resource type="PackedScene" uid="uid://bget3hbnib7a8" path="res://Inventory/InventorySlot.tscn" id="4_hin6i"]
+[ext_resource type="Resource" uid="uid://b17pa33d27g5p" path="res://Inventory/Items/Item Data/Iron.tres" id="5_ri3hn"]
+[ext_resource type="Resource" uid="uid://cur2tab54ed7a" path="res://Inventory/Items/Item Data/Wood.tres" id="6_2ckpd"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_lt5te"]
+radius = 0.3
+height = 1.8
+
+[sub_resource type="LabelSettings" id="LabelSettings_cbwra"]
+font_size = 24
+
+[node name="Player" type="CharacterBody3D" groups=["Player"]]
+script = ExtResource("1_krxqb")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
+shape = SubResource("CapsuleShape3D_lt5te")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
+current = true
+
+[node name="InteractionController" type="RayCast3D" parent="Camera3D"]
+target_position = Vector3(0, 0, -2)
+script = ExtResource("2_66uls")
+
+[node name="InteractionPrompt" type="Label" parent="Camera3D/InteractionController"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -247.0
+offset_top = -50.0
+offset_right = 247.0
+offset_bottom = 50.0
+grow_horizontal = 2
+grow_vertical = 2
+label_settings = SubResource("LabelSettings_cbwra")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Inventory" type="Node" parent="."]
+script = ExtResource("3_r3826")
+starter_items = Array[Resource("res://Inventory/Item.gd")]([ExtResource("4_56bjt"), ExtResource("5_ri3hn"), ExtResource("6_2ckpd"), ExtResource("6_2ckpd"), ExtResource("6_2ckpd"), ExtResource("5_ri3hn")])
+
+[node name="InventoryWindow" type="Panel" parent="Inventory"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -280.0
+offset_top = -184.0
+offset_right = 280.0
+offset_bottom = 184.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SlotContainer" type="GridContainer" parent="Inventory/InventoryWindow"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -260.0
+offset_top = -156.0
+offset_right = 260.0
+offset_bottom = 156.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/h_separation = 10
+theme_override_constants/v_separation = 10
+columns = 5
+
+[node name="InventorySlot" parent="Inventory/InventoryWindow/SlotContainer" instance=ExtResource("4_hin6i")]
+layout_mode = 2
+
+[node name="InventorySlot2" parent="Inventory/InventoryWindow/SlotContainer" instance=ExtResource("4_hin6i")]
+layout_mode = 2
+
+[node name="InventorySlot3" parent="Inventory/InventoryWindow/SlotContainer" instance=ExtResource("4_hin6i")]
+layout_mode = 2
+
+[node name="InventorySlot4" parent="Inventory/InventoryWindow/SlotContainer" instance=ExtResource("4_hin6i")]
+layout_mode = 2
+
+[node name="InventorySlot5" parent="Inventory/InventoryWindow/SlotContainer" instance=ExtResource("4_hin6i")]
+layout_mode = 2
+
+[node name="InventorySlot6" parent="Inventory/InventoryWindow/SlotContainer" instance=ExtResource("4_hin6i")]
+layout_mode = 2
+
+[node name="InventorySlot7" parent="Inventory/InventoryWindow/SlotContainer" instance=ExtResource("4_hin6i")]
+layout_mode = 2
+
+[node name="InventorySlot8" parent="Inventory/InventoryWindow/SlotContainer" instance=ExtResource("4_hin6i")]
+layout_mode = 2
+
+[node name="InventorySlot9" parent="Inventory/InventoryWindow/SlotContainer" instance=ExtResource("4_hin6i")]
+layout_mode = 2
+
+[node name="InventorySlot10" parent="Inventory/InventoryWindow/SlotContainer" instance=ExtResource("4_hin6i")]
+layout_mode = 2
+
+[node name="InventorySlot11" parent="Inventory/InventoryWindow/SlotContainer" instance=ExtResource("4_hin6i")]
+layout_mode = 2
+
+[node name="InventorySlot12" parent="Inventory/InventoryWindow/SlotContainer" instance=ExtResource("4_hin6i")]
+layout_mode = 2
+
+[node name="InventorySlot13" parent="Inventory/InventoryWindow/SlotContainer" instance=ExtResource("4_hin6i")]
+layout_mode = 2
+
+[node name="InventorySlot14" parent="Inventory/InventoryWindow/SlotContainer" instance=ExtResource("4_hin6i")]
+layout_mode = 2
+
+[node name="InventorySlot15" parent="Inventory/InventoryWindow/SlotContainer" instance=ExtResource("4_hin6i")]
+layout_mode = 2
+
+[node name="InfoText" type="Label" parent="Inventory/InventoryWindow"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -23.0
+grow_horizontal = 2
+grow_vertical = 0
+horizontal_alignment = 1

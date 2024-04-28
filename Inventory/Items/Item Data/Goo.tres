@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="Item" load_steps=4 format=3 uid="uid://bt1ekeqoodtl3"]
+
+[ext_resource type="Texture2D" uid="uid://dkvupub4psbja" path="res://Inventory/Items/Icons/Goo.png" id="1_rdxo4"]
+[ext_resource type="Script" path="res://Inventory/Item.gd" id="1_yo1no"]
+[ext_resource type="PackedScene" uid="uid://bx342u6bfew07" path="res://Inventory/Items/World Items/WorldItem_Goo.tscn" id="3_ixfj1"]
+
+[resource]
+script = ExtResource("1_yo1no")
+display_name = "Goo"
+icon = ExtResource("1_rdxo4")
+max_stack_size = 12
+world_item_scene = ExtResource("3_ixfj1")

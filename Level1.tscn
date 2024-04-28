@@ -1,0 +1,82 @@
+[gd_scene load_steps=8 format=3 uid="uid://b6l10pqlksa3b"]
+
+[ext_resource type="PackedScene" uid="uid://lso8uhl2ffym" path="res://Platforms/PlatformLarge.tscn" id="1_o0dyr"]
+[ext_resource type="PackedScene" uid="uid://cp1tmwe5rkkup" path="res://player.tscn" id="2_m8ouu"]
+[ext_resource type="PackedScene" uid="uid://d07qo7fs6xrud" path="res://enemy.tscn" id="3_t2lv5"]
+[ext_resource type="PackedScene" uid="uid://dtahwjlppodli" path="res://spikes.tscn" id="4_piyb8"]
+[ext_resource type="PackedScene" uid="uid://c48nfrtgsrqjm" path="res://coin.tscn" id="5_0s0wv"]
+[ext_resource type="PackedScene" uid="uid://jlj7ljoyflt2" path="res://end_flag.tscn" id="6_d44uh"]
+
+[sub_resource type="Environment" id="Environment_mmk66"]
+background_mode = 1
+background_color = Color(0.258824, 0.0235294, 0.223529, 1)
+
+[node name="main" type="Node3D"]
+
+[node name="Player" parent="." instance=ExtResource("2_m8ouu")]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.994851, -0.0223214, 0.0988629, -0.0701165, 0.552765, 0.830382, -0.0731833, -0.833038, 0.548354, 0.685291, 4.52277, 4.14661)
+shadow_enabled = true
+
+[node name="Spikes" parent="." instance=ExtResource("4_piyb8")]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_mmk66")
+
+[node name="EndFlag" parent="." instance=ExtResource("6_d44uh")]
+
+[node name="Platforms" type="Node3D" parent="."]
+
+[node name="PlatformLarge" parent="Platforms" instance=ExtResource("1_o0dyr")]
+
+[node name="PlatformLarge2" parent="Platforms" instance=ExtResource("1_o0dyr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.59649, -0.898856, 0)
+
+[node name="PlatformLarge3" parent="Platforms" instance=ExtResource("1_o0dyr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.57123, -0.269512, -2.88721)
+
+[node name="PlatformLarge4" parent="Platforms" instance=ExtResource("1_o0dyr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.6257, 0.1291, -3.04959)
+
+[node name="PlatformLarge7" parent="Platforms" instance=ExtResource("1_o0dyr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.4905, 2.16908, -3.04959)
+
+[node name="PlatformLarge8" parent="Platforms" instance=ExtResource("1_o0dyr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.4905, 2.60974, 0.551437)
+
+[node name="PlatformLarge9" parent="Platforms" instance=ExtResource("1_o0dyr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.0875, 2.60974, 3.58261)
+
+[node name="PlatformLarge10" parent="Platforms" instance=ExtResource("1_o0dyr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.5658, 2.60974, 7.00354)
+
+[node name="PlatformLarge5" parent="Platforms" instance=ExtResource("1_o0dyr")]
+transform = Transform3D(0.925739, -0.378164, 0, 0.378164, 0.925739, 0, 0, 0, 1, 10.5485, 1.40809, -3.02117)
+
+[node name="PlatformLarge6" parent="Platforms" instance=ExtResource("1_o0dyr")]
+transform = Transform3D(0.98687, -0.161518, 0, 0.161518, 0.98687, 0, 0, 0, 1, 12.3372, 1.95704, -3.02117)
+
+[node name="Coins" type="Node3D" parent="."]
+
+[node name="Coin" parent="Coins" instance=ExtResource("5_0s0wv")]
+
+[node name="Coin2" parent="Coins" instance=ExtResource("5_0s0wv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.69833, 0.329399, 0.133147)
+
+[node name="Coin3" parent="Coins" instance=ExtResource("5_0s0wv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.91266, 0.881727, -3.37935)
+
+[node name="Enemies" type="Node3D" parent="."]
+
+[node name="Enemy" parent="Enemies" instance=ExtResource("3_t2lv5")]
+
+[node name="Enemy2" parent="Enemies" instance=ExtResource("3_t2lv5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.07423, 0.756098, -2.90772)
+move_speed = 1.5
+move_dir = Vector3(0, 2, 0)
+
+[node name="Enemy3" parent="Enemies" instance=ExtResource("3_t2lv5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.5839, 3.60563, 6.66786)
+move_speed = 4.0
+move_dir = Vector3(3, 0, 0)
